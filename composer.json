@@ -1,0 +1,23 @@
+{
+    "name": "dimarick/twig-source-map",
+    "description": "Provide support for twig source map",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dimarick",
+            "email": "dimon.ksk@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dimarick\\TwigSourceMap\\": "src/Dimarick/TwigSourceMap/"
+        }
+    },
+    "require": {
+        "php": "~7.0",
+        "twig/twig": "~2.0",
+        "koala-framework/sourcemaps": "~0.5",
+        "phpunit/phpunit": "~6.0"
+    }
+}

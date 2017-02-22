@@ -1,0 +1,73 @@
+{% extends 'test.html.twig' %}
+
+{# Buttons #}
+{% block button_attributes %}
+    {% set attr = attr|merge({class: 'btn ' ~ attr.class | default("")}) %}
+    {{ parent() }}
+{% endblock button_attributes %}
+
+{% block button_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>
+      {{ label }}
+    </button>
+{% endspaceless %}
+{% endblock button_widget %}
+
+{% block textarea_widget %}
+{% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+{{ parent() }}
+{% endblock textarea_widget %}
+
+{% block form_widget_simple %}
+{% spaceless %}
+  {% set type = type|default('text') %}
+  {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+  {{ parent() }}
+{% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block form_legend %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name %}
+    {% endif %}
+    <legend>{{ label }}</legend>
+{% endspaceless %}
+{% endblock form_legend %}
+
+{% block form_label %}
+{% spaceless %}
+  {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ ' control-label'}) %}
+  {{ parent() }}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_row %}
+{% spaceless %}
+  {% set attr = attr|merge({'class': attr.class|default('') ~ (errors|length > 0 ? ' has-error' : '') }) %}
+  <div class="form-group {{ attr.class }}">
+      {{ (form) }}
+      {{ (form) }}
+      {{ (form) }}
+  </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+
+{% block form_errors %}
+{% spaceless %}
+{% if errors|length > 0 %}
+  <span class="help-block">
+  {% for error in errors %}
+      {{
+          error.messageTemplate
+      }} <br>
+  {% endfor %}
+  </span>
+{% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

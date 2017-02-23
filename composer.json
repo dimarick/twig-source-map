@@ -17,7 +17,9 @@
     "require": {
         "php": "~5.6|~7.0",
         "twig/twig": "~2.0|~1.30",
-        "koala-framework/sourcemaps": "~0.5",
+        "koala-framework/sourcemaps": "~0.5"
+    },
+    "require-dev": {
         "phpunit/phpunit": "~5.0|~6.0"
     }
 }
